@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/nate/Workspace/misc/akka-spray-websocket'
+let g:netrw_dirhist_2='/home/nate/Workspace/wirelessglue/vertex/app/com/wirelessglue/vertex/oadr1'
+let g:netrw_dirhist_3='/home/nate/Workspace/wirelessglue/gluetop'
+let g:netrw_dirhist_4='/home/nate/tools/spark'
+let g:netrw_dirhist_5='/home/nate/Workspace/misc/hazelcast-example/src/main/resources'
+let g:netrw_dirhist_6='/'
+let g:netrw_dirhist_7='/usr/share/vim/vim74/indent'
+let g:netrw_dirhist_8='/home/nate/.vim/indent'
