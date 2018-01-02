@@ -29,6 +29,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
 Plugin 'godoctor/godoctor.vim'
 Plugin 'sebdah/vim-delve'
+Plugin 'mileszs/ack.vim'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end() 
 
@@ -77,6 +79,9 @@ set wrap
 " -----------------------------------------------------
 tnoremap <Esc> <C-\><C-n>   " swtich from TERMINAL mode to NORMAL
 
+" go back to previously opened file
+nmap ;6 <C-^><CR> 
+
 " Better split switching
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -124,7 +129,7 @@ endfunction
 nmap ;b :call ToggleBackground()<CR>
 
 " Adjust background (light/darkd) based on time of day
-if 6 < strftime("%H") && strftime("%H") < 19
+if 7 < strftime("%H") && strftime("%H") < 17
   set background=light
 else
   set background=dark
@@ -162,9 +167,13 @@ let g:UltiSnipsExpandTrigger = "<C-l>"
 " -----------------------------------------------------
 set completeopt+=noinsert
 set completeopt+=noselect
+set completeopt-=preview
 
-let g:python3_host_prog  = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 let g:python3_host_skip_check = 1
+if has('nvim')
+    let g:python_host_prog  = 'python2'
+    let g:python3_host_prog = 'python3'
+endif
 
 let g:deoplete#enable_at_startup = 1
 
@@ -280,3 +289,18 @@ let g:neomake_go_gometalinter_maker = {
 " -----------------------------------------------------
 let b:csv_headerline = 1
 " }}}
+
+" -----------------------------------------------------
+" Ack settings {{{
+" -----------------------------------------------------
+
+" Use rg instead of ack (it's 10x faster)
+let g:ackprg = 'rg'
+"}}}
+
+" -----------------------------------------------------
+" jedi-vim settings {{{
+" -----------------------------------------------------
+let g:jedi#force_py_version = 3
+let g:jedi#completions_enabled = 0
+"}}}
